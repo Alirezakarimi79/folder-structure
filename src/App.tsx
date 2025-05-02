@@ -25,7 +25,7 @@ function App() {
         selectedFolder={selectedFolder}
         setSelectedFolder={setSelectedFolder}
       />
-      <Content />
+      <Content selectedFolder={selectedFolder} />
     </div>
   );
 }
