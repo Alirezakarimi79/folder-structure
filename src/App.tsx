@@ -10,18 +10,9 @@ function App() {
     name: '',
   });
 
-  const handleSelectedFolder = (path: string) => {
-    setSelectedFolder({
-      path,
-      type: path.includes('.') ? 'file' : 'folder',
-      name: String(path.split('/').pop()),
-    });
-  };
-
   return (
     <div className="flex w-dvw h-dvh">
       <Sidebar
-        handleSelectedFolder={handleSelectedFolder}
         selectedFolder={selectedFolder}
         setSelectedFolder={setSelectedFolder}
       />

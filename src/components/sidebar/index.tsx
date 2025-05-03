@@ -5,11 +5,7 @@ import { mockData } from '../../shared/mock-data';
 import FileExplorer from '../file-explorer';
 import AddFolderFile from '../add-folder-file';
 
-const Sidebar: FC<ISidebar> = ({
-  handleSelectedFolder,
-  selectedFolder,
-  setSelectedFolder,
-}) => {
+const Sidebar: FC<ISidebar> = ({ selectedFolder, setSelectedFolder }) => {
   const [folderStructure, setFolderStructure] = useState<DataType[]>(mockData);
 
   return (
@@ -20,7 +16,6 @@ const Sidebar: FC<ISidebar> = ({
     >
       <AddFolderFile
         setFolderStructure={setFolderStructure}
-        handleSelectedFolder={handleSelectedFolder}
         selectedFolder={selectedFolder}
       />
       <FileExplorer
