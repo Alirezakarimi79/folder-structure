@@ -7,10 +7,9 @@ export interface ISidebar {
 }
 
 export interface IAddFolderFile {
-  setFolderStructure: (
-    selectedFolder: (prevState: DataType[]) => DataType[],
-  ) => void;
+  setFolderStructure: (selectedFolder: DataType[]) => void;
   selectedFolder: IApp;
+  folderStructure: DataType[];
 }
 
 export interface IFileExplorer {

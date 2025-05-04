@@ -15,6 +15,7 @@ const Sidebar: FC<ISidebar> = ({ selectedFolder, setSelectedFolder }) => {
       }
     >
       <AddFolderFile
+        folderStructure={folderStructure}
         setFolderStructure={setFolderStructure}
         selectedFolder={selectedFolder}
       />

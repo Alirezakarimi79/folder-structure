@@ -8,6 +8,7 @@ import { onAddItem } from './logic.ts';
 const AddFolderFile: FC<IAddFolderFile> = ({
   setFolderStructure,
   selectedFolder,
+  folderStructure,
 }) => {
   const handleAddItem = (type: 'file' | 'folder') => {
     const name = prompt(`Enter ${type} name`);
@@ -19,14 +20,17 @@ const AddFolderFile: FC<IAddFolderFile> = ({
       type,
     };
 
-    setFolderStructure((prevState: DataType[]) => {
-      const parentPath =
-        selectedFolder.type === 'file'
-          ? selectedFolder.path.split('/').slice(0, -1).join('/')
-          : selectedFolder.path;
+    const { updatedTree, error } = onAddItem(
+      folderStructure,
+      selectedFolder.path,
+      newNode,
+    );
 
-      return onAddItem(prevState, parentPath, newNode);
-    });
+    if (error) {
+      alert(error);
+    } else {
+      setFolderStructure(updatedTree);
+    }
   };
 
   return (
